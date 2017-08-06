@@ -83,7 +83,7 @@ bintray {
     key = System.getenv('BINTRAY_KEY')
     pkg {
         repo = 'codes.brick'
-        name = 'libgdx-common'
+        name = 'common'
         userOrg = 'brickcodes'
         licenses = ['MIT']
         vcsUrl = 'https://github.com/brick-codes/libgdx-common.git'
