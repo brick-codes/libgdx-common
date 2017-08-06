@@ -9,9 +9,9 @@ pipeline {
     }
     stage('Results') {
       steps {
-        findbugs pattern: 'core/build/reports/findbugs/main.xml,desktop/build/reports/findbugs/main.xml'
-        checkstyle pattern: 'core/build/reports/checkstyle/main.xml,desktop/build/reports/checkstyle/main.xml'
-        pmd pattern: 'core/build/reports/pmd/main.xml,desktop/build/reports/pmd/main.xml'
+        findbugs pattern: 'build/reports/findbugs/main.xml'
+        checkstyle pattern: 'build/reports/checkstyle/main.xml'
+        pmd pattern: 'build/reports/pmd/main.xml'
         warnings consoleParsers: [[parserName: 'Java Compiler (javac)']]
       }
     }
