@@ -190,7 +190,7 @@ public class MenuControllerInputWatcher implements ControllerListener, InputProc
     }
   }
 
-  void updateNavList(List<List<Actor>> navList) {
+  public void updateNavList(List<List<Actor>> navList) {
     this.nav = navList;
   }
 
