@@ -21,7 +21,7 @@ public class SplashScreen implements Screen {
   public SplashScreen(Texture logo, SpriteBatch batch) {
     this.logo = logo;
     this.batch = batch;
-    viewport = new FitViewport(logo.getWidth() * 2, logo.getHeight() * 2);
+    viewport = new FitViewport(logo.getWidth() * 1.1f, logo.getHeight() * 1.1f);
   }
 
   @Override
