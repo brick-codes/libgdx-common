@@ -1,0 +1,109 @@
+plugins {
+    id "com.jfrog.bintray" version "1.7.3"
+}
+
+group 'codes.brick'
+version '1.0.0'
+
+apply plugin: 'java'
+apply plugin: "checkstyle"
+apply plugin: "findbugs"
+apply plugin: "pmd"
+apply plugin: "maven-publish"
+
+sourceCompatibility = 1.8
+
+repositories {
+    jcenter()
+}
+
+ext {
+    gdxVersion = '1.9.6'
+    ashleyVersion = '1.7.3'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+checkstyle {
+    configFile = new File(rootDir, "config/checkstyle/google_checks.xml")
+    toolVersion = '8.0'
+    ignoreFailures = true
+}
+
+findbugs {
+    toolVersion = '3.0.1'
+    ignoreFailures = true
+}
+
+pmd {
+    toolVersion = '5.8.1'
+    ignoreFailures = true
+}
+
+task docs(type: Javadoc) {
+    source subprojects.collect {project -> project.sourceSets.main.allJava }
+    classpath = files(subprojects.collect {project -> project.sourceSets.main.compileClasspath})
+    destinationDir = new File(projectDir, 'docs')
+    failOnError = false
+}
+
+tasks.withType(Checkstyle) {
+    reports {
+        xml.enabled true
+        html.enabled false
+    }
+}
+
+tasks.withType(FindBugs) {
+    reports {
+        xml.enabled true
+        html.enabled false
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.0.2'
+}
+
+dependencies {
+    compile "com.badlogicgames.gdx:gdx:$gdxVersion"
+    compile "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
+    compile "com.badlogicgames.gdx:gdx-controllers:$gdxVersion"
+    compile "com.badlogicgames.ashley:ashley:$ashleyVersion"
+}
+
+bintray {
+    user = System.getenv('BINTRAY_USER')
+    key = System.getenv('BINTRAY_KEY')
+    pkg {
+        repo = 'codes.brick'
+        name = 'libgdx-common'
+        userOrg = 'brickcodes'
+        licenses = ['MIT']
+        vcsUrl = 'https://github.com/brick-codes/libgdx-common.git'
+        version {
+            name = project.version
+            released  = new Date()
+            vcsTag = project.version
+        }
+    }
+    publications = ["CommonPublication"]
+}
+
+publishing {
+    publications {
+        CommonPublication(MavenPublication) {
+            from components.java
+            groupId 'codes.brick'
+            artifactId 'common'
+            version project.version
+        }
+    }
+}
+
