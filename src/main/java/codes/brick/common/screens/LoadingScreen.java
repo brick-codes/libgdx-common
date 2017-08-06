@@ -32,11 +32,12 @@ public class LoadingScreen implements Screen {
 
   public LoadingScreen(BitmapFont font, SpriteBatch batch) {
     this.font = font;
+    this.batch = batch;
+    text = new StringBuilder(10);
+    text.append("Loading");
     layout = new GlyphLayout(font, text);
     startingWidth = layout.width;
-    this.batch = batch;
     viewport = new FitViewport(layout.width * 2, layout.height * 5);
-    text = new StringBuilder(10);
   }
 
   @Override
@@ -50,16 +51,16 @@ public class LoadingScreen implements Screen {
     batch.end();
     accumulated += delta;
     while (accumulated >= 0.2) {
-      text.append(".");
       if (text.length == 10) {
         font.setColor(randomColor());
         text.setLength(0);
         text.append("Loading");
-      }
+      } else {
+        text.append(".");
+;      }
       accumulated -= 0.2;
-      System.out.println(text);
     }
-    layout.setText(font, text.toString());
+    layout.setText(font, text);
   }
 
   private Color randomColor() {
