@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'codes.brick'
-version '1.0.3'
+version '1.0.4'
 
 apply plugin: 'java'
 apply plugin: "checkstyle"
@@ -46,11 +46,14 @@ pmd {
     ignoreFailures = true
 }
 
-task docs(type: Javadoc) {
-    source subprojects.collect {project -> project.sourceSets.main.allJava }
-    classpath = files(subprojects.collect {project -> project.sourceSets.main.compileClasspath})
-    destinationDir = new File(projectDir, 'docs')
-    failOnError = false
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
 }
 
 tasks.withType(Checkstyle) {
@@ -96,13 +99,42 @@ bintray {
     publications = ["CommonPublication"]
 }
 
+def pomConfig = {
+    licenses {
+        license {
+            name "MIT"
+            url "https://opensource.org/licenses/MIT"
+            distribution "repo"
+        }
+    }
+    developers {
+        developer {
+            id "DenialAdams"
+            name "Richard McCormack"
+            email "brick@brick.codes"
+        }
+    }
+    scm {
+       url "https://github.com/brick-codes/libgdx-common"
+    }
+}
+
 publishing {
     publications {
         CommonPublication(MavenPublication) {
             from components.java
+            artifact sourcesJar
+            artifact javadocJar
             groupId 'codes.brick'
             artifactId 'common'
             version project.version
+            pom.withXml {
+              def root = asNode()
+              root.appendNode('description', 'utility code for libgdx games')
+              root.appendNode('name', 'libgdx-common')
+              root.appendNode('url', 'http://brick.codes')
+              root.children().last() + pomConfig
+            }
         }
     }
 }
