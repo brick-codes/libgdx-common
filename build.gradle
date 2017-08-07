@@ -96,6 +96,7 @@ bintray {
             vcsTag = project.version
         }
     }
+    publish = true
     publications = ["CommonPublication"]
 }
 
