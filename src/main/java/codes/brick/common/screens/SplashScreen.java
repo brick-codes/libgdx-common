@@ -18,6 +18,11 @@ public class SplashScreen implements Screen {
 
   public float accumulated = 0;
 
+  /**
+   * Screen which displays the brick.codes logo (swag).
+   * @param logo brick.codes logo to draw.
+   * @param batch batch to draw with.
+   */
   public SplashScreen(Texture logo, SpriteBatch batch) {
     this.logo = logo;
     this.batch = batch;

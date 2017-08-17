@@ -69,6 +69,7 @@ public class MenuControllerInputWatcher implements ControllerListener, InputProc
     }
     return false;
   }
+
   private boolean clickButton(Actor button) {
     InputEvent event = Pools.obtain(InputEvent.class);
     event.setType(InputEvent.Type.touchDown);
@@ -183,6 +184,10 @@ public class MenuControllerInputWatcher implements ControllerListener, InputProc
     return nav.get(currentRow).get(currentCol);
   }
 
+  /**
+   * Tick down cooldown, which prevents users from moving through menus accidentally.
+   * @param delta delta time to subtract from cooldown.
+   */
   public void cooldown(float delta) {
     cooldown -= delta;
     if (cooldown < 0) {
