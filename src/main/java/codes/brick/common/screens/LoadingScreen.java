@@ -24,12 +24,18 @@ public class LoadingScreen implements Screen {
 
   private float accumulated = 0;
 
-  // We don't want to use a global random here, because if we want to re-run the game with the same seed to get
+  // We don't want to use a global random here,
+  // because if we want to re-run the game with the same seed to get
   // the same results, the amount of time it takes to load shouldn't throw it off.
   private final Random rand = new Random();
 
   private final float startingWidth;
 
+  /**
+   * Display some fun text while we load assets.
+   * @param font Font to display loading text.
+   * @param batch Batch to draw with.
+   */
   public LoadingScreen(BitmapFont font, SpriteBatch batch) {
     this.font = font;
     this.batch = batch;
@@ -47,7 +53,8 @@ public class LoadingScreen implements Screen {
   @Override
   public void render(float delta) {
     batch.begin();
-    font.draw(batch, layout, (viewport.getWorldWidth() - startingWidth) / 2, (viewport.getWorldHeight() + layout.height) / 2);
+    font.draw(batch, layout, (viewport.getWorldWidth() - startingWidth) / 2,
+        (viewport.getWorldHeight() + layout.height) / 2);
     batch.end();
     accumulated += delta;
     while (accumulated >= 0.2) {
@@ -57,7 +64,7 @@ public class LoadingScreen implements Screen {
         text.append("Loading");
       } else {
         text.append(".");
-;      }
+      }
       accumulated -= 0.2;
     }
     layout.setText(font, text);

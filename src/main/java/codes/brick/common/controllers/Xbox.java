@@ -20,11 +20,10 @@ import com.badlogic.gdx.controllers.Controller;
 import com.badlogic.gdx.utils.SharedLibraryLoader;
 
 /** Mappings for the Xbox series of controllers. Works only on desktop so far.
- *
  * See <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/360_controller.svg/450px-360_controller.svg.png">this
  * image</a> which describes each button and axes.
- *
- * All codes are for buttons expect the L_STICK_XXX, R_STICK_XXX, L_TRIGGER and R_TRIGGER codes, which are axes.
+ * All codes are for buttons expect the L_STICK_XXX, R_STICK_XXX, L_TRIGGER and R_TRIGGER codes,
+ * which are axes.
  *
  * @author badlogic */
 public class Xbox {
@@ -46,17 +45,17 @@ public class Xbox {
   public static final int R_STICK;
 
   // Axes
-  /** left trigger, -1 if not pressed, 1 if pressed **/
+  /** left trigger, -1 if not pressed, 1 if pressed. **/
   public static final int L_TRIGGER;
-  /** right trigger, -1 if not pressed, 1 if pressed **/
+  /** right trigger, -1 if not pressed, 1 if pressed. **/
   public static final int R_TRIGGER;
-  /** left stick vertical axis, -1 if up, 1 if down **/
+  /** left stick vertical axis, -1 if up, 1 if down. **/
   public static final int L_STICK_VERTICAL_AXIS;
-  /** left stick horizontal axis, -1 if left, 1 if right **/
+  /** left stick horizontal axis, -1 if left, 1 if right. **/
   public static final int L_STICK_HORIZONTAL_AXIS;
-  /** right stick vertical axis, -1 if up, 1 if down **/
+  /** right stick vertical axis, -1 if up, 1 if down. **/
   public static final int R_STICK_VERTICAL_AXIS;
-  /** right stick horizontal axis, -1 if left, 1 if right **/
+  /** right stick horizontal axis, -1 if left, 1 if right. **/
   public static final int R_STICK_HORIZONTAL_AXIS;
 
   static {
@@ -151,7 +150,9 @@ public class Xbox {
     }
   }
 
-  /** @return whether the {@link Controller} is an Xbox controller
+  /**
+   * Determines if a controller is an Xbox controller (based on name.)
+   * @return whether the {@link Controller} is an Xbox controller
    */
   public static boolean isXboxController(Controller controller) {
     return controller.getName().contains("Xbox");
