@@ -2,7 +2,6 @@ package codes.brick.common.screens;
 
 import codes.brick.common.navigation.MenuControllerInputWatcher;
 import codes.brick.common.navigation.NavTable;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.Screen;
@@ -27,6 +26,7 @@ public class CreditsScreen implements Screen {
 
   /**
    * Create a new credits screen.
+   *
    * @param skin Skin to use for styling the screen
    */
   public CreditsScreen(Skin skin, Array<String> credits) {
@@ -45,12 +45,13 @@ public class CreditsScreen implements Screen {
       final Button returnButton = new TextButton("Done", skin);
       table.add(returnButton).pad(5);
       returnButton.pad(10);
-      returnButton.addListener(new ClickListener() {
-        @Override
-        public void clicked(InputEvent event, float posX, float posY) {
-          finished = true;
-        }
-      });
+      returnButton.addListener(
+          new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float posX, float posY) {
+              finished = true;
+            }
+          });
     }
     cp = new MenuControllerInputWatcher(table.getNavList());
   }
@@ -75,12 +76,10 @@ public class CreditsScreen implements Screen {
   }
 
   @Override
-  public void pause() {
-  }
+  public void pause() {}
 
   @Override
-  public void resume() {
-  }
+  public void resume() {}
 
   @Override
   public void hide() {

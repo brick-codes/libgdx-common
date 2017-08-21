@@ -1,7 +1,6 @@
 package codes.brick.common.navigation;
 
 import codes.brick.common.controllers.Xbox;
-
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.controllers.Controller;
@@ -12,7 +11,6 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.utils.Pools;
-
 import java.util.List;
 
 public class MenuControllerInputWatcher implements ControllerListener, InputProcessor {
@@ -186,6 +184,7 @@ public class MenuControllerInputWatcher implements ControllerListener, InputProc
 
   /**
    * Tick down cooldown, which prevents users from moving through menus accidentally.
+   *
    * @param delta delta time to subtract from cooldown.
    */
   public void cooldown(float delta) {
@@ -211,7 +210,6 @@ public class MenuControllerInputWatcher implements ControllerListener, InputProc
   public boolean keyUp(int keyCode) {
     return false;
   }
-
 
   @Override
   public boolean keyTyped(char key) {
@@ -264,10 +262,8 @@ public class MenuControllerInputWatcher implements ControllerListener, InputProc
   }
 
   @Override
-  public void connected(Controller controller) {
-  }
+  public void connected(Controller controller) {}
 
   @Override
-  public void disconnected(Controller controller) {
-  }
+  public void disconnected(Controller controller) {}
 }

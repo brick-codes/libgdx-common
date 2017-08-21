@@ -20,6 +20,7 @@ public class SplashScreen implements Screen {
 
   /**
    * Screen which displays the brick.codes logo (swag).
+   *
    * @param logo brick.codes logo to draw.
    * @param batch batch to draw with.
    */
@@ -49,14 +50,10 @@ public class SplashScreen implements Screen {
   }
 
   @Override
-  public void pause() {
-
-  }
+  public void pause() {}
 
   @Override
-  public void resume() {
-
-  }
+  public void resume() {}
 
   @Override
   public void hide() {

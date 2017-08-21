@@ -1,31 +1,31 @@
-/*******************************************************************************
- * Copyright 2011 See AUTHORS file.
+/**
+ * ***************************************************************************** Copyright 2011 See
+ * AUTHORS file.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * <p>Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file
+ * except in compliance with the License. You may obtain a copy of the License at
  *
- *   http://www.apache.org/licenses/LICENSE-2.0
+ * <p>http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
+ * <p>Unless required by applicable law or agreed to in writing, software distributed under the
+ * License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing permissions and
  * limitations under the License.
- ******************************************************************************/
-
+ * ****************************************************************************
+ */
 package codes.brick.common.controllers;
 
 import com.badlogic.gdx.controllers.Controller;
 import com.badlogic.gdx.utils.SharedLibraryLoader;
 
-/** Mappings for the Xbox series of controllers. Works only on desktop so far.
- * See <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/360_controller.svg/450px-360_controller.svg.png">this
- * image</a> which describes each button and axes.
- * All codes are for buttons expect the L_STICK_XXX, R_STICK_XXX, L_TRIGGER and R_TRIGGER codes,
- * which are axes.
+/**
+ * Mappings for the Xbox series of controllers. Works only on desktop so far. See <a
+ * href="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/360_controller.svg/450px-360_controller.svg.png">this
+ * image</a> which describes each button and axes. All codes are for buttons expect the L_STICK_XXX,
+ * R_STICK_XXX, L_TRIGGER and R_TRIGGER codes, which are axes.
  *
- * @author badlogic */
+ * @author badlogic
+ */
 public class Xbox {
   // Buttons
   public static final int A;
@@ -45,17 +45,17 @@ public class Xbox {
   public static final int R_STICK;
 
   // Axes
-  /** left trigger, -1 if not pressed, 1 if pressed. **/
+  /** left trigger, -1 if not pressed, 1 if pressed. * */
   public static final int L_TRIGGER;
-  /** right trigger, -1 if not pressed, 1 if pressed. **/
+  /** right trigger, -1 if not pressed, 1 if pressed. * */
   public static final int R_TRIGGER;
-  /** left stick vertical axis, -1 if up, 1 if down. **/
+  /** left stick vertical axis, -1 if up, 1 if down. * */
   public static final int L_STICK_VERTICAL_AXIS;
-  /** left stick horizontal axis, -1 if left, 1 if right. **/
+  /** left stick horizontal axis, -1 if left, 1 if right. * */
   public static final int L_STICK_HORIZONTAL_AXIS;
-  /** right stick vertical axis, -1 if up, 1 if down. **/
+  /** right stick vertical axis, -1 if up, 1 if down. * */
   public static final int R_STICK_VERTICAL_AXIS;
-  /** right stick horizontal axis, -1 if left, 1 if right. **/
+  /** right stick horizontal axis, -1 if left, 1 if right. * */
   public static final int R_STICK_HORIZONTAL_AXIS;
 
   static {
@@ -152,6 +152,7 @@ public class Xbox {
 
   /**
    * Determines if a controller is an Xbox controller (based on name.)
+   *
    * @return whether the {@link Controller} is an Xbox controller
    */
   public static boolean isXboxController(Controller controller) {

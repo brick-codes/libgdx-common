@@ -8,7 +8,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.StringBuilder;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-
 import java.util.Random;
 
 public class LoadingScreen implements Screen {
@@ -33,6 +32,7 @@ public class LoadingScreen implements Screen {
 
   /**
    * Display some fun text while we load assets.
+   *
    * @param font Font to display loading text.
    * @param batch Batch to draw with.
    */
@@ -47,13 +47,15 @@ public class LoadingScreen implements Screen {
   }
 
   @Override
-  public void show() {
-  }
+  public void show() {}
 
   @Override
   public void render(float delta) {
     batch.begin();
-    font.draw(batch, layout, (viewport.getWorldWidth() - startingWidth) / 2,
+    font.draw(
+        batch,
+        layout,
+        (viewport.getWorldWidth() - startingWidth) / 2,
         (viewport.getWorldHeight() + layout.height) / 2);
     batch.end();
     accumulated += delta;
@@ -81,16 +83,13 @@ public class LoadingScreen implements Screen {
   }
 
   @Override
-  public void pause() {
-  }
+  public void pause() {}
 
   @Override
-  public void resume() {
-  }
+  public void resume() {}
 
   @Override
-  public void hide() {
-  }
+  public void hide() {}
 
   @Override
   public void dispose() {

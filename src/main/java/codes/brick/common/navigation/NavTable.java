@@ -8,7 +8,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.VerticalGroup;
 import com.badlogic.gdx.scenes.scene2d.ui.WidgetGroup;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +17,7 @@ public class NavTable extends Table {
 
   /**
    * Like a normal table, but record information for Controller navigation.
+   *
    * @param skin Skin to use for table
    */
   public NavTable(Skin skin) {
@@ -28,6 +28,7 @@ public class NavTable extends Table {
 
   /**
    * Get the navlist, used for controller navigation support.
+   *
    * @return Navlist for controller navigation
    */
   public List<List<Actor>> getNavList() {
@@ -46,7 +47,7 @@ public class NavTable extends Table {
   }
 
   @Override
-  public Cell row()  {
+  public Cell row() {
     if (!navList.get(currentRow).isEmpty()) {
       currentRow++;
       navList.add(new ArrayList<>());
@@ -60,7 +61,7 @@ public class NavTable extends Table {
     if (actor instanceof TextButton) {
       actors.add(actor);
     } else if (actor instanceof HorizontalGroup || actor instanceof VerticalGroup) {
-      for (Actor subActor : ((WidgetGroup)actor).getChildren()) {
+      for (Actor subActor : ((WidgetGroup) actor).getChildren()) {
         actors.addAll(getButtons(subActor));
       }
     }
