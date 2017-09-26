@@ -13,6 +13,7 @@
  * limitations under the License.
  * ****************************************************************************
  */
+
 package codes.brick.common.controllers;
 
 import com.badlogic.gdx.controllers.Controller;
