@@ -9,12 +9,12 @@ public class Util {
   private static final float MIN_MULTIPLIER = 0.02f;
 
   /**
-    An exponential curve (rather than a linear curve)
-    matches our ears much better, so we adjust every multiplier by that before we play them.
-
-    @param volumeMultiplier multiplier to adjust
-    @return Adjusted multiplier
-  */
+   * An exponential curve (rather than a linear curve)
+   * matches our ears much better, so we adjust every multiplier by that before we play them.
+   *
+   * @param volumeMultiplier multiplier to adjust
+   * @return Adjusted multiplier
+   */
   public static float expAdjustMultiplier(float volumeMultiplier) {
     float multiplier = floatPow(volumeMultiplier, EXP_ADJUSTMENT);
     // Arbitrary minimum; 0.01 is too quiet to hear but is a possible volume from the slider
@@ -25,11 +25,13 @@ public class Util {
   }
 
   /**
-    Like pow, but for floats. Does NOT do any sort of overflow handling.
-
-    @param value Base
-    @param times Exponent
-  */
+   * Like pow, but for floats. Does NOT do any sort of overflow handling.
+   *
+   * @param value Base
+   * @param times Exponent
+   * @return Result of pow computation
+   *
+   */
   public static float floatPow(float value, int times) {
     float sum = value;
     for (int i = 1; i < times; i++) {

@@ -11,7 +11,9 @@ public class ScreenshotManager {
   private static final String SCREENSHOT_DIR = "My Games/%s/Screenshots/";
   private static final String FILE_EXTENSION = ".png";
 
-  /** Take a screenshot of the current game, saving it to predefined file path. */
+  /** Take a screenshot of the current game, saving it to predefined file path.
+   * @param nameOfGame Name of the game, used in the path
+   * */
   public static void takeScreenshot(String nameOfGame) {
     byte[] pixels =
         ScreenUtils.getFrameBufferPixels(

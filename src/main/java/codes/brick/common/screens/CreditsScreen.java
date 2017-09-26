@@ -28,6 +28,7 @@ public class CreditsScreen implements Screen {
    * Create a new credits screen.
    *
    * @param skin Skin to use for styling the screen
+   * @param credits List of text to display
    */
   public CreditsScreen(Skin skin, Array<String> credits) {
     stage = new Stage(new FitViewport(1000, 360));

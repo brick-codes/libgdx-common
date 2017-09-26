@@ -154,6 +154,7 @@ public class Xbox {
   /**
    * Determines if a controller is an Xbox controller (based on name.)
    *
+   * @param controller Controller to check
    * @return whether the {@link Controller} is an Xbox controller
    */
   public static boolean isXboxController(Controller controller) {
