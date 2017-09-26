@@ -1,5 +1,6 @@
 plugins {
     id "com.jfrog.bintray" version "1.7.3"
+    id "com.github.spotbugs" version "1.4"
 }
 
 group 'codes.brick'
@@ -7,7 +8,6 @@ version '1.0.5'
 
 apply plugin: 'java'
 apply plugin: "checkstyle"
-apply plugin: "findbugs"
 apply plugin: "pmd"
 apply plugin: "maven-publish"
 
@@ -36,8 +36,8 @@ checkstyle {
     ignoreFailures = true
 }
 
-findbugs {
-    toolVersion = '3.0.1'
+spotbugs {
+    toolVersion = '3.1.0-RC6'
     ignoreFailures = true
 }
 
@@ -63,7 +63,7 @@ tasks.withType(Checkstyle) {
     }
 }
 
-tasks.withType(FindBugs) {
+tasks.withType(com.github.spotbugs.SpotBugsTask) {
     reports {
         xml.enabled true
         html.enabled false
