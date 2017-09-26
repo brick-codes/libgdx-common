@@ -21,7 +21,7 @@ pipeline {
       }
       steps {
         withCredentials([usernamePassword(credentialsId: 'bintray',  usernameVariable: 'BINTRAY_USER', passwordVariable: 'BINTRAY_KEY')]) {
-          sh './gradlew bintrayUpload'
+          sh './gradlew -Dorg.gradle.java.home=/usr/lib/jvm/java-9-openjdk bintrayUpload'
         }
       }
     }
