@@ -32,7 +32,7 @@ dependencies {
 
 checkstyle {
     configFile = new File(rootDir, "config/checkstyle/google_checks.xml")
-    toolVersion = '8.1'
+    toolVersion = '8.2'
     ignoreFailures = true
 }
 
