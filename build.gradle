@@ -4,21 +4,21 @@ plugins {
 }
 
 group 'codes.brick'
-version '1.1.0'
+version '1.1.1'
 
 apply plugin: 'java'
 apply plugin: "checkstyle"
 apply plugin: "pmd"
 apply plugin: "maven-publish"
 
-sourceCompatibility = 1.9
+sourceCompatibility = 1.8
 
 repositories {
     jcenter()
 }
 
 ext {
-    gdxVersion = '1.9.6'
+    gdxVersion = '1.9.7'
     ashleyVersion = '1.7.3'
 }
 
@@ -71,7 +71,7 @@ tasks.withType(com.github.spotbugs.SpotBugsTask) {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '4.2'
+    gradleVersion = '4.3'
 }
 
 dependencies {
