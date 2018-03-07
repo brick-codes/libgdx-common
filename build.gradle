@@ -1,24 +1,24 @@
 plugins {
-    id "com.jfrog.bintray" version "1.7.3"
-    id "com.github.spotbugs" version "1.4"
+    id "com.jfrog.bintray" version "1.8.0"
+    id "com.github.spotbugs" version "1.6.1"
 }
 
 group 'codes.brick'
-version '1.1.1'
+version '1.1.2'
 
 apply plugin: 'java'
 apply plugin: "checkstyle"
 apply plugin: "pmd"
 apply plugin: "maven-publish"
 
-sourceCompatibility = 1.8
+sourceCompatibility = 1.9
 
 repositories {
     jcenter()
 }
 
 ext {
-    gdxVersion = '1.9.7'
+    gdxVersion = '1.9.8'
     ashleyVersion = '1.7.3'
 }
 
@@ -27,22 +27,21 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
 checkstyle {
     configFile = new File(rootDir, "config/checkstyle/google_checks.xml")
-    toolVersion = '8.2'
+    toolVersion = '8.8'
     ignoreFailures = true
 }
 
 spotbugs {
-    toolVersion = '3.1.0-RC6'
+    toolVersion = '3.1.2'
     ignoreFailures = true
 }
 
 pmd {
-    toolVersion = '5.8.1'
+    toolVersion = '6.1.0'
     ignoreFailures = true
 }
 
@@ -71,7 +70,7 @@ tasks.withType(com.github.spotbugs.SpotBugsTask) {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '4.3'
+    gradleVersion = '4.6'
 }
 
 dependencies {
